@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/dev-server',
     './src/index'
   ],
@@ -35,13 +35,32 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style!css'
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              hmr: true
+            },
+          },
+          'css-loader'
+        ],
+      },
+      {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10 * 1024,
+            name: '[name].[ext]'
+          }
+        }
       }
     ]
   },
   devServer: {
     hot: true,
-    contentBase: './dist'
+    contentBase: './dist',
+    port: 3000
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
