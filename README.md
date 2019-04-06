@@ -1,11 +1,11 @@
 # REACT HOT-RELOADER 
 
-* *React Hot Loader is a plugin that allows React components to be live reloaded without the loss of state. It works with Webpack and other bundlers that support both Hot Module Replacement (HMR) and Babel plugins.* *
+*React Hot Loader is a plugin that allows React components to be live reloaded without the loss of state. It works with Webpack and other bundlers that support both Hot Module Replacement (HMR) and Babel plugins.*
 
 
 
 ###### https://vimeo.com/100010922
-* *Video of React Hot loading in action* *
+*Video of React Hot loading in action*
 
 
 ###### To get started:
@@ -26,4 +26,4 @@
 ###### Notes
 
   **Server not included**
-    - consider installing * *Express* * | * *Koa* * | * *Hapi* *
+    - consider installing *Express* | *Koa* | *Hapi*
