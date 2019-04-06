@@ -8,7 +8,7 @@
 *Video of React Hot loading in action*
 
 
-###### To get started:
+### To get started:
 
   **npm start** 
     - compile webpack build via webpack-dev-server  
@@ -23,7 +23,7 @@
     - to change settings configure webpack.prod.js
 
 
-###### Notes
+### Notes
 
   **Server not included**
     - consider installing *Express* | *Koa* | *Hapi*
