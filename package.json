@@ -1,21 +1,19 @@
 {
-  "name": "portal",
+  "name": "react-hot-loader",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "build": "webpack --mode production --env.NODE_ENV=production --env.production --progress"
+    "start": "webpack-dev-server --config webpack.dev.js --progress --colors",
+    "build": "webpack --config webpack.prod.js --progress --colors"
   },
   "author": "steven chung",
   "license": "MIT",
-  "homepage": "https://github.com/stevenchung213/the-portal#readme",
+  "homepage": "https://github.com/stevenchung213/rhl-boilerplate#readme",
   "dependencies": {
-    "express": "^4.16.4",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0"
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
@@ -23,13 +21,26 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@hot-loader/react-dom": "^16.8.6",
+    "add-asset-html-webpack-plugin": "^3.1.3",
     "babel-loader": "^8.0.5",
+    "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
+    "cssnano": "^4.1.10",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "react-hot-loader": "^4.8.2",
+    "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.2.3",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1",
+    "webpack-pwa-manifest": "^4.0.0"
   }
 }

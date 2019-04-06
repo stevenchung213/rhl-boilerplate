@@ -19,10 +19,14 @@ render(Main);
 if (module.hot) {
   // keep in mind - here you are configuring HMR to accept CHILDREN MODULE
   // while `hot` would configure HMR for the CURRENT module
-  module.hot.accept('./components/Main', () => {
+  module.hot.accept('./components/Main.js', () => {
     // if you are using harmony modules ({modules:false})
-    render(Main);
+    const NextMain = require('./components/Main').default;
     // in all other cases - re-require App manually
-    render(require('./components/Main'));
-  })
+    render(NextMain);
+  });
+  // UNCOMMENT BOTTOM TO CLEAR OUT CHROME DEV TOOLS CONSOLE UPON HOT RELOAD
+  // module.hot.addStatusHandler(status => {
+  //   if (status === 'prepare') console.clear()
+  // })
 }
