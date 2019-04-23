@@ -27,5 +27,4 @@
 
   **Server not included**
    * consider installing *Express* | *Koa* | *Hapi*
-   * change settings for HTMLWebpackPlugin in webpack.common.js to your information
-    * https://github.com/jaketrent/html-webpack-template
+   * change settings for HTMLWebpackPlugin in webpack.common.js to your information: https://github.com/jaketrent/html-webpack-template
