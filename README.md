@@ -11,20 +11,20 @@
 ### To get started:
 
   **npm start** 
-    * compile webpack build via webpack-dev-server  
-    * build in memory only
-    * no actual files are written to file system
-    * to change settings configure webpack.dev.js
+   * compile webpack build via webpack-dev-server  
+   * build in memory only
+   * no actual files are written to file system
+   * to change settings configure webpack.dev.js
     
   **npm run build** 
-    * compile webpack production build
-    * written to file system
-    * most of the popular production level settings enabled
-    * to change settings configure webpack.prod.js
+   * compile webpack production build
+   * written to file system
+   * most of the popular production level settings enabled
+   * to change settings configure webpack.prod.js
 
 
 ### Notes
 
   **Server not included**
-    * consider installing *Express* | *Koa* | *Hapi*
-    * change settings for HTMLWebpackPlugin in webpack.common.js to your information
+   * consider installing *Express* | *Koa* | *Hapi*
+   * change settings for HTMLWebpackPlugin in webpack.common.js to your information
