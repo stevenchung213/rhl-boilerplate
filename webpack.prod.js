@@ -6,7 +6,6 @@ const merge = require('webpack-merge'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
   CssNano = require('cssnano'),
-  WebpackPwaManifest = require('webpack-pwa-manifest'),
   AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
 
@@ -87,28 +86,8 @@ module.exports = merge(common, {
       threshold: 8192,
       minRatio: 0.8
     }),
-    new WebpackPwaManifest({
-      inject: true,
-      filename: './dist/assets/manifest.json',
-      includeDirectory: true,
-      name: 'the.Portal',
-      short_name: 'the.Portal',
-      description: 'check out the Portal now',
-      display: 'standalone',
-      start_url: 'index.html',
-      theme_color: '#ffffff',
-      background_color: '#000000',
-      crossorigin: null,
-      icons: [
-        {
-          src: './src/assets/profile.png',
-          sizes: [512],
-          destination: '/dist/assets'
-        }
-      ],
-    }),
     new AddAssetHtmlPlugin({
-      filepath: path.resolve(__dirname, './dist/*.js'),
+      filepath: __dirname + './dist/*.js',
       includeSourcemap: false
     })
   ],

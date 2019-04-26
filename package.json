@@ -6,12 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack.dev.js --progress --colors",
-    "build": "webpack --config webpack.prod.js --progress --colors"
+    "build": "webpack --config webpack.prod.js --progress --colors",
+    "server": "node ./server/index.js"
   },
   "author": "steven chung",
   "license": "MIT",
   "homepage": "https://github.com/stevenchung213/rhl-boilerplate#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -41,7 +45,6 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
-    "webpack-merge": "^4.2.1",
-    "webpack-pwa-manifest": "^4.0.0"
+    "webpack-merge": "^4.2.1"
   }
 }

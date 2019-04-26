@@ -40,11 +40,11 @@ module.exports = merge(common, {
     hot: true,
     port: 3000,
     contentBase: __dirname + '/dist',
-    historyApiFallback: true, // Allow refreshing of the page
+    historyApiFallback: true
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.NamedChunksPlugin(),
-    new webpack.HotModuleReplacementPlugin(), // Enable hot reloading
+    new webpack.HotModuleReplacementPlugin()
   ]
 });

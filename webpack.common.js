@@ -63,27 +63,33 @@ module.exports = {
       mobile: true,
       cache: false,
       minify: true,
-      title: 'the.Portal',
+      // your app title below
+      title: '',
       meta: [
         {
           charset: 'UTF-8'
         },
         {
           name: 'author',
-          content: 'Steven Chung'
+          // your name below
+          content: ''
         },
         {
           name: 'description',
-          content: 'Save your favorite images and access them anywhere'
+          // your app description below
+          content: ''
         }
       ],
       links: [
-        "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
-        "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        // all CDN links here as strings
       ],
       appMountId: 'root',
       bodyHtmlSnippet: `<noscript>Please enable JavaScript...</noscript>`,
-      scripts: []
+      scripts: [
+        // all other script tags here
+          // note: webpack will automatically insert all necessary
+          //       script tags for all files produced from build
+      ]
     })
   ],
 };
