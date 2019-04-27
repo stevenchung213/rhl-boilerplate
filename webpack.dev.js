@@ -9,7 +9,7 @@ module.exports = merge(common, {
     }
   },
   mode: 'development',
-  devtool: 'cheap-eval-source-map',
+  devtool: 'inline-source-map',
   cache: true,
   performance: {
     hints: false
