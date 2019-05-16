@@ -18,7 +18,7 @@ app.use(express.static(path.resolve(__dirname + '/../dist')));
 
 // send our index.html to client upon arrival of our site
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../public/index.html'));
+  res.sendFile(path.join(__dirname + '/../dist/index.html'));
 });
 
 
