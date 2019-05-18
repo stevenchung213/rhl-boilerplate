@@ -16,7 +16,7 @@
    * build to memory only
    * no actual files are written to file system
    * to change settings configure webpack.dev.js
-   * *http://localhost:8080*
+   * *localhost:8080*
     
   **npm run build**
    * production mode 
