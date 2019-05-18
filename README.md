@@ -10,12 +10,13 @@
 
 ### To get started:
 
-  **npm start** 
+  **npm start**   
    * development mode ONLY
    * webpack-dev-server
    * build to memory only
    * no actual files are written to file system
    * to change settings configure webpack.dev.js
+   * *http://localhost:8080*
     
   **npm run build**
    * production mode 
