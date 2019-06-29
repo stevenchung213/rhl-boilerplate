@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,7 +14,9 @@ app.use(cors());
 app.use(bodyParser.json());
 // support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
-// set static-files distribution folder
+// support serving of compressed assets
+app.use(compression());
+// set public distribution folder
 app.use(express.static(path.resolve(__dirname + '/../dist')));
 
 // send our index.html to client upon arrival of our site
