@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'es6-promise/auto';
+import 'isomorphic-fetch';
 import { AppContainer } from 'react-hot-loader';
 import Main from './components/Main';
 import styles from './styles.css';
