@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ProvidePlugin } = require('webpack');
 
 module.exports = {
   entry: {
@@ -88,9 +89,13 @@ module.exports = {
       bodyHtmlSnippet: `<noscript>Please enable JavaScript...</noscript>`,
       scripts: [
         // all other script tags here
-          // note: webpack will automatically insert all necessary
-          //       script tags for all files produced from build
+        // note: webpack will automatically insert all necessary
+        //       script tags for all files produced from build
       ]
-    })
+    }),
+    new ProvidePlugin({
+      'Promise': 'es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
   ],
 };
