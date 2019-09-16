@@ -1,4 +1,6 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+require('dotenv').config();
+const webpack = require('webpack'),
+  HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -92,5 +94,6 @@ module.exports = {
         //       script tags for all files produced from build
       ]
     }),
+    new webpack.DefinePlugin({ ...process.env })
   ],
 };
