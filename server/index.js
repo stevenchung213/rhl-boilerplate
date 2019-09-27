@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // support serving of compressed assets
 app.use(compression());
 // set public distribution folder
-app.use(express.static(path.resolve(__dirname + '/../dist')));
+app.use(express.static(path.resolve(`${__dirname}/../dist`)));
 
 // send our index.html to client upon arrival of our site
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../dist/index.html'));
+  res.sendFile(path.join(`${__dirname}/../dist/index.html`));
 });
 
 
@@ -38,5 +38,5 @@ app.post(.......)
 
 // have express listen on defined ${port} which is currently set to 3000 on line 7
 app.listen(port, () => {
-  console.log('express serving the application at http://localhost:' + port);
+  console.log(`express serving the application at http://localhost:${port}`);
 });

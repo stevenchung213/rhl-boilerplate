@@ -1,21 +1,21 @@
-const merge = require('webpack-merge'),
-  common = require('./webpack.common.js'),
-  webpack = require('webpack'),
-  CompressionPlugin = require('compression-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin'),
-  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-  OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"),
-  CssNano = require('cssnano'),
-  AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssNano = require('cssnano');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const common = require('./webpack.common.js');
 
 
 module.exports = merge(common, {
   mode: 'production',
   performance: {
-    hints: 'warning'
+    hints: 'warning',
   },
   output: {
-    pathinfo: false
+    pathinfo: false,
   },
   optimization: {
     minimizer: [
@@ -26,19 +26,19 @@ module.exports = merge(common, {
         terserOptions: {
           output: {
             comments: false,
-          }
-        }
+          },
+        },
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessor: CssNano,
         cssProcessorOptions: {
           discardComments: {
-            removeAll: true
+            removeAll: true,
           },
-          safe: true
+          safe: true,
         },
-        canPrint: false
-      })
+        canPrint: false,
+      }),
     ],
     namedModules: false,
     namedChunks: false,
@@ -67,28 +67,28 @@ module.exports = merge(common, {
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   plugins: [
-    new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify("production") }),
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
     new CompressionPlugin({
-      filename: "[path].gz[query]",
-      algorithm: "gzip",
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 8192,
-      minRatio: 0.8
+      minRatio: 0.8,
     }),
     new AddAssetHtmlPlugin({
-      filepath: __dirname + './dist/*.js',
-      includeSourcemap: false
-    })
+      filepath: `${__dirname}./dist/*.js`,
+      includeSourcemap: false,
+    }),
   ],
 });

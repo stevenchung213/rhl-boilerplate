@@ -1,21 +1,21 @@
-const merge = require('webpack-merge'),
-  common = require('./webpack.common.js'),
-  webpack = require('webpack');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   resolve: {
     alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   mode: 'development',
   devtool: 'inline-source-map',
   cache: true,
   performance: {
-    hints: false
+    hints: false,
   },
   output: {
-    pathinfo: true
+    pathinfo: true,
   },
   optimization: {
     namedModules: true,
@@ -39,12 +39,12 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     port: 8080,
-    contentBase: __dirname + '/dist',
-    historyApiFallback: true
+    contentBase: `${__dirname}/dist`,
+    historyApiFallback: true,
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.NamedChunksPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 });

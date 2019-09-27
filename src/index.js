@@ -6,12 +6,12 @@ import { AppContainer } from 'react-hot-loader';
 import Main from './components/Main';
 import styles from './styles.css';
 
-const render = Component => {
+const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('root'),
   );
 };
 
