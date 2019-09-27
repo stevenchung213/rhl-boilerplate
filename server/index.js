@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
@@ -11,6 +12,8 @@ const port = process.env.PORT || 3000;
 /* MIDDLEWARES */
 // to deal with cross-origin resource sharing
 app.use(cors());
+// secure with helmet's headers
+app.use(helmet());
 // support parsing of application/json type post data
 app.use(bodyParser.json());
 // support parsing of application/x-www-form-urlencoded post data
