@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'react-hooks',
   ],
   rules: {
     'react/prop-types': 0,
@@ -32,6 +33,8 @@ module.exports = {
     ],
     'jsx-a11y/label-has-associated-control': 0,
     'jsx-a11y/label-has-for': 0,
-    'no-plusplus': 'off'
+    'no-plusplus': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
