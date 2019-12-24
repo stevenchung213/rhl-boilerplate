@@ -87,6 +87,7 @@ module.exports = {
       ],
       links: [
         // all CDN links here as strings
+        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap',
       ],
       appMountId: 'root',
       headHtmlSnippet: '<style>body { margin: 0; padding: 0; }</style>',
