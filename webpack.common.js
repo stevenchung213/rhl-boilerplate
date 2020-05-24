@@ -91,7 +91,6 @@ module.exports = {
       ],
       appMountId: 'root',
       headHtmlSnippet: '<style>body { margin: 0; padding: 0; }</style>',
-      bodyHtmlSnippet: '<noscript>Please enable JavaScript...</noscript>',
       scripts: [
         // all other script tags here
         // note: webpack will automatically insert all necessary
