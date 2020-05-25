@@ -38,10 +38,6 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
-        query: {
-          limit: 10000,
-          name: 'images/[name].[ext]',
-        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -63,39 +59,39 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: require('html-webpack-template'),
-      inject: false,
-      mobile: true,
+      templateContent: `
+        <!DOCTYPE html>
+        <html lang="en">
+            <head/>
+            <body>
+                <div id="root"></div>
+            </body>
+        </html>
+      `,
+      inject: true,
+      mobile: false,
       cache: false,
       minify: true,
-      // your app title below
-      title: '',
+      hash: true,
+      title: 'FILL_ME_IN',
       meta: [
         {
           charset: 'UTF-8',
         },
         {
           name: 'author',
-          // your name below
-          content: '',
+          content: 'FILL_ME_IN',
         },
         {
           name: 'description',
-          // your app description below
-          content: '',
+          content: 'FILL_ME_IN',
         },
       ],
-      links: [
-        // all CDN links here as strings
-        'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap',
-      ],
+      links: ['https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'],
       appMountId: 'root',
       headHtmlSnippet: '<style>body { margin: 0; padding: 0; }</style>',
-      scripts: [
-        // all other script tags here
-        // note: webpack will automatically insert all necessary
-        //       script tags for all files produced from build
-      ],
+      bodyHtmlSnippet: '<noscript>Please enable JavaScript...</noscript>',
+      scripts: [/*insert urls as strings, ie. links above*/],
     }),
     new webpack.DefinePlugin({ ...process.env }),
   ],
