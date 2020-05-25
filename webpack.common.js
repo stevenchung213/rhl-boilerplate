@@ -73,18 +73,18 @@ module.exports = {
       cache: false,
       minify: true,
       hash: true,
-      title: 'FILL_ME_IN',
+      title: 'FILL_ME_IN -> webpack.common',
       meta: [
         {
           charset: 'UTF-8',
         },
         {
           name: 'author',
-          content: 'FILL_ME_IN',
+          content: 'FILL_ME_IN -> webpack.common',
         },
         {
           name: 'description',
-          content: 'FILL_ME_IN',
+          content: 'FILL_ME_IN -> webpack.common',
         },
       ],
       links: ['https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'],
