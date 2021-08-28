@@ -18,11 +18,8 @@ module.exports = merge(common, {
     pathinfo: true,
   },
   optimization: {
-    namedModules: true,
-    namedChunks: true,
     nodeEnv: 'development',
     flagIncludedChunks: false,
-    occurrenceOrder: false,
     sideEffects: false,
     usedExports: false,
     concatenateModules: false,
@@ -39,12 +36,9 @@ module.exports = merge(common, {
   devServer: {
     hot: true,
     port: 8080,
-    contentBase: `${__dirname}/dist`,
     historyApiFallback: true,
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.NamedChunksPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
 });
