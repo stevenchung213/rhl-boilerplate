@@ -27,7 +27,7 @@ if (module.hot) {
     // in all other cases - re-require App manually
     render(NextMain);
   });
-  // UNCOMMENT BOTTOM TO CLEAR OUT CHROME DEV TOOLS CONSOLE UPON HOT RELOAD
+  /* UNCOMMENT BOTTOM TO CLEAR OUT CHROME DEV TOOLS CONSOLE UPON HOT RELOAD */
   // module.hot.addStatusHandler(status => {
   //   if (status === 'prepare') console.clear()
   // })
