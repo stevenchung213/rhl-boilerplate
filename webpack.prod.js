@@ -1,16 +1,16 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const webpack = require('webpack');
 const CompressionPlugin = require('compression-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CssNano = require('cssnano');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const common = require('./webpack.common.js');
 
 
 module.exports = merge(common, {
   mode: 'production',
+
   performance: {
     hints: 'warning',
   },
@@ -18,27 +18,22 @@ module.exports = merge(common, {
     pathinfo: false,
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
+        parallel: true
+      }),
+      new CssMinimizerPlugin({
         parallel: true,
-        sourceMap: true,
-        terserOptions: {
-          output: {
-            comments: false,
-          },
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
         },
-      }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessor: CssNano,
-        cssProcessorOptions: {
-          discardComments: {
-            removeAll: true,
-          },
-          safe: true,
-        },
-        canPrint: false,
-      }),
+      })
     ],
     nodeEnv: 'production',
     flagIncludedChunks: true,
@@ -47,35 +42,35 @@ module.exports = merge(common, {
     concatenateModules: true,
     splitChunks: {
       hidePathInfo: true,
-      chunks: 'all',
-      minSize: 30000,
+      chunks: 'async',
+      minSize: 20000,
       maxSize: 0,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: '~',
-      name: true,
+      name: false,
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-          enforce: true,
-          priority: -10,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
+        defaultVendors: {
+          reuseExistingChunk: true
+        }
+        // vendors: {
+        //   test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+        //   enforce: true,
+        //   priority: -10,
+        // },
+        // default: {
+        //   minChunks: 2,
+        //   priority: -20,
+        //   reuseExistingChunk: true,
+        // },
       },
     },
   },
   plugins: [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
+    new MiniCssExtractPlugin(),
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',
