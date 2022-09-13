@@ -1,5 +1,3 @@
-require('dotenv').config();
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -13,7 +11,6 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: `${__dirname}/dist`,
-    publicPath: '/',
   },
   module: {
     rules: [
@@ -90,6 +87,5 @@ module.exports = {
       bodyHtmlSnippet: '<noscript>Please enable JavaScript...</noscript>',
       scripts: [/*insert urls as strings, ie. links above*/],
     }),
-    new webpack.DefinePlugin({ ...process.env }),
   ],
 };

@@ -16,6 +16,7 @@ module.exports = merge(common, {
   },
   output: {
     pathinfo: false,
+    publicPath: './',
   },
   optimization: {
     minimize: true,
@@ -41,14 +42,11 @@ module.exports = merge(common, {
     usedExports: true,
     concatenateModules: true,
     splitChunks: {
-      hidePathInfo: true,
-      chunks: 'async',
-      minSize: 20000,
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
+      chunks: 'all',
+      minSize: 0,
+      maxAsyncRequests: 9,
+      maxInitialRequests: 9,
+      // automaticNameDelimiter: '~',
       name: false,
       cacheGroups: {
         defaultVendors: {
@@ -78,9 +76,9 @@ module.exports = merge(common, {
       threshold: 8192,
       minRatio: 0.8,
     }),
-    new AddAssetHtmlPlugin({
-      filepath: `${__dirname}./dist/*.js`,
-      includeSourcemap: false,
-    }),
+    // new AddAssetHtmlPlugin({
+    //   filepath: `${__dirname}/dist/*.js`,
+    //   includeSourcemap: false,
+    // }),
   ],
 });

@@ -25,8 +25,8 @@ module.exports = merge(common, {
     usedExports: false,
     concatenateModules: false,
     splitChunks: {
+      chunks: 'all',
       hidePathInfo: false,
-      minSize: 10000,
       maxAsyncRequests: Infinity,
       maxInitialRequests: Infinity,
     },
